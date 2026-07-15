@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider";
+import { AuthProvider } from "@/context/authContext";
 
 
 
@@ -23,8 +24,10 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
+          <AuthProvider>
+            <Navbar />
+            {children}
+          </AuthProvider>
         </ThemeProvider>
 
       </body>
